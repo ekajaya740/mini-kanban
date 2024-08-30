@@ -5,11 +5,14 @@ import { QueryClientProvider } from 'react-query';
 import { queryClient } from './lib/config/reactQuery.js';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './lib/config/router.jsx';
+import AntdConfig from './lib/config/antd.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <AntdConfig>
+        <RouterProvider router={router} />
+      </AntdConfig>
     </QueryClientProvider>
   </StrictMode>
 );
