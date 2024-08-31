@@ -9,7 +9,9 @@ export function useSignIn() {
     queryKey: queryKey,
     queryFn: signInRequest,
     onSuccess: async (data) => {
-      Cookies.set(import.meta.env.VITE_COOKIE_TOKEN_KEY, data.auth_token);
+      Cookies.set(import.meta.env.VITE_COOKIE_TOKEN_KEY, data.auth_token, {
+        secure: true,
+      });
     },
   });
 }
