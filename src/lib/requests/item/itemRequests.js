@@ -1,7 +1,7 @@
 import { axiosInstance } from '../../config/axios';
 
 export async function getItemsRequest(todoId) {
-  const endpoint = `todos/${todoId}/items`;
+  const endpoint = `/todos/${todoId}/items`;
 
   const { data } = await axiosInstance.get(endpoint);
 
@@ -9,7 +9,7 @@ export async function getItemsRequest(todoId) {
 }
 
 export async function createItemRequest(todoId, input) {
-  const endpoint = `todos/${todoId}/items`;
+  const endpoint = `/todos/${todoId}/items`;
 
   const { data } = await axiosInstance.post(endpoint, input);
 
@@ -17,7 +17,7 @@ export async function createItemRequest(todoId, input) {
 }
 
 export async function updateItemRequest(todoId, itemId, input) {
-  const endpoint = `todos/${todoId}/items/${itemId}`;
+  const endpoint = `/todos/${todoId}/items/${itemId}`;
 
   const { data } = await axiosInstance.patch(endpoint, input);
 
@@ -25,7 +25,7 @@ export async function updateItemRequest(todoId, itemId, input) {
 }
 
 export async function deleteItemRequest(todoId, itemId) {
-  const endpoint = `todos/${todoId}/items/${itemId}`;
+  const endpoint = `/todos/${todoId}/items/${itemId}`;
 
   const { data } = await axiosInstance.delete(endpoint);
 
