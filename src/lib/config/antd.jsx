@@ -17,7 +17,7 @@ export default function AntdConfig({ children }) {
           colorTextDisabled: '#8C8C8C',
           colorError: '#EB5757',
           colorWarning: '#FAAD14',
-          colorBgBase: '#1890FF',
+          // colorBgBase: '#1890FF',
         },
       }}>
       {children}
