@@ -8,7 +8,7 @@ export default function TodoCard() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className='pt-3 px-3 border-black border rounded-md max-w-80 w-full space-y-3'>
+      <div className='pt-3 px-3 border-black border rounded-md min-w-80 max-w-sm w-full space-y-3'>
         <div className='space-y-1'>
           <h2 className='px-2 py-px text-xs border border-black w-fit rounded-sm'>
             Hehe
