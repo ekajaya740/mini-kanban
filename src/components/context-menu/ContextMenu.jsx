@@ -1,3 +1,9 @@
+import PropTypes from 'prop-types';
+
+ContextMenu.propTypes = {
+  isOpen: PropTypes.bool,
+};
+
 export default function ContextMenu(props) {
   const { isOpen } = props;
   return (
