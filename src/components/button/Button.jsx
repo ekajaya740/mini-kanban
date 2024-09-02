@@ -29,7 +29,7 @@ export default function Button(props) {
       <a
         href={href}
         className={clsx(
-          'underline w-full items-center justify-center inline-flex text-sm py-1',
+          'underline w-full items-center justify-center inline-flex text-sm py-1 gap-2',
           {
             'px-4': usePadding,
           }
@@ -41,7 +41,7 @@ export default function Button(props) {
 
   return (
     <button
-      className={clsx('inline-flex space-x-2 text-sm items-center py-1', {
+      className={clsx('inline-flex text-sm gap-2 items-center py-1', {
         border: bordered,
         'px-4': usePadding,
         'w-full justify-center': fullWidth,
