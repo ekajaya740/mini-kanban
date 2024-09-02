@@ -1,17 +1,17 @@
 import { useMutation } from 'react-query';
 import { signUpRequest } from '../../../requests/signUp/signUpRequest';
-import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export function useSignUp() {
   const key = ['signup'];
 
+  const navigate = useNavigate();
+
   return useMutation({
     mutationKey: key,
     mutationFn: async (input) => await signUpRequest(input),
-    onSuccess: (data) => {
-      Cookies.set(import.meta.env.VITE_COOKIE_TOKEN_KEY, data.auth_token, {
-        secure: true,
-      });
+    onSuccess: () => {
+      navigate('/auth/sign-in');
     },
   });
 }
