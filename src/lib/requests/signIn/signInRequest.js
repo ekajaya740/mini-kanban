@@ -1,17 +1,12 @@
 import { axiosInstance } from '../../config/axios';
-import {
-  signInResponseSchema,
-  signInUserRequestSchema,
-} from '../../schemas/user';
+import { authSignInResponseSchema } from '../../schemas/auth';
 
 export async function signInRequest(input) {
-  const endpoint = '/auth/login';
+  const endpoint = '/auth/sign-in';
 
-  const vInput = await signInUserRequestSchema.validate(input);
+  const { data } = await axiosInstance.post(endpoint, input);
 
-  const { data } = await axiosInstance.post(endpoint, vInput);
-
-  const vData = await signInResponseSchema.validate(data);
+  const vData = await authSignInResponseSchema.validate(data);
 
   return vData;
 }
