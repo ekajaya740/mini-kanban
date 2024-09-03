@@ -4,7 +4,7 @@ import './index.css';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './lib/config/reactQuery.js';
 import { RouterProvider } from 'react-router-dom';
-import { router } from './lib/config/router.jsx';
+import { router } from './lib/config/Router.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
