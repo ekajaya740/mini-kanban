@@ -5,9 +5,13 @@ export default function NewTaskForm() {
   const { control } = useFormContext();
   return (
     <form>
-      <Input name={'name'} control={control} />
-      <div className='grid grid-cols-4'>
-        <Input name={'progress_percentage'} control={control} />
+      <Input name={'name'} control={control} label={'Name'} />
+      <div className='grid grid-cols-2'>
+        <Input
+          name={'progress_percentage'}
+          control={control}
+          label={'Progress'}
+        />
       </div>
     </form>
   );
