@@ -12,12 +12,14 @@ export function useSignIn() {
     mutationKey: key,
     mutationFn: async (input) => signInRequest(input),
     onSuccess: async (data) => {
-      Cookies.set(import.meta.env.VITE_COOKIE_TOKEN_KEY, data.token, {
-        secure: true,
-        expires: 1,
-      });
+      if (data.token) {
+        Cookies.set(import.meta.env.VITE_COOKIE_TOKEN_KEY, data.token, {
+          secure: true,
+          expires: 1,
+        });
 
-      navigate(0);
+        navigate('/');
+      }
     },
   });
 }
