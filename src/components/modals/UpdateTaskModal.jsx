@@ -18,6 +18,7 @@ UpdateTaskModal.propTypes = {
 
 export default function UpdateTaskModal(props) {
   const { isOpen, onClose, id } = props;
+
   const rhf = useForm();
 
   const updateTask = useUpdateTask(id);

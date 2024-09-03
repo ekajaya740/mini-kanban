@@ -6,5 +6,5 @@ SignCard.propTypes = {
 
 export default function SignCard(props) {
   const { children } = props;
-  return <div className='border border-black p-4'>{children}</div>;
+  return <div className='border border-black p-4 rounded-md'>{children}</div>;
 }

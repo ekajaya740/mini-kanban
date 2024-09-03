@@ -7,6 +7,10 @@ export const baseTaskSchema = object({
   progress_percentage: number().max(100).nullable(),
 });
 
+export const getTaskResponseSchema = baseResponseSchema.shape({
+  data: baseDataSchema.concat(baseTaskSchema),
+});
+
 export const getAllTaskSchema = array(baseTaskSchema);
 
 export const getAllTasksResponseSchema = baseResponseSchema.shape({
@@ -28,7 +32,10 @@ export const moveTaskRequestSchema = object({
 
 export const moveTaskResponseSchema = createTaskResponseSchema;
 
-export const updateTaskRequestSchema = baseTaskSchema.pick(['name']);
+export const updateTaskRequestSchema = baseTaskSchema.pick([
+  'name',
+  'progress_percentage',
+]);
 export const updateTaskResponseSchema = baseResponseSchema.shape({
   data: baseDataSchema.concat(baseTaskSchema),
 });

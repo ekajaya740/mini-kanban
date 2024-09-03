@@ -22,7 +22,7 @@ export function Modal(props) {
         className={`absolute inset-0 bg-black opacity-50 
  ${isOpen ? 'block' : 'hidden'}`}></div>
       <div
-        className={`relative bg-white rounded-lg p-8 shadow-md max-w-sm space-y-6`}>
+        className={`relative bg-white rounded-lg p-8 shadow-md max-w-sm w-full space-y-6`}>
         <div className='flex flex-col gap-4'>
           <div className='flex space-x-4'>
             {icon && <img src={icon} />}

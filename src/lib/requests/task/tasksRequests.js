@@ -2,17 +2,28 @@ import { axiosInstance } from '../../config/axios';
 import { baseResponseSchema } from '../../schemas/base';
 import {
   createTaskResponseSchema,
-  getAllTaskSchema,
+
+  getTaskResponseSchema,
   moveTaskResponseSchema,
   updateTaskResponseSchema,
 } from '../../schemas/task';
 
-export async function getTasksRequest(todoId) {
-  const endpoint = `/todos/${todoId}/items`;
+// export async function getTasksRequest(todoId) {
+//   const endpoint = `/todos/${todoId}/items`;
+
+//   const { data } = await axiosInstance.get(endpoint);
+
+//   const vData = await getAllTaskSchema.validate(data);
+
+//   return vData;
+// }
+
+export async function getTaskRequest(id) {
+  const endpoint = `/task/${id}`;
 
   const { data } = await axiosInstance.get(endpoint);
 
-  const vData = await getAllTaskSchema.validate(data);
+  const vData = await getTaskResponseSchema.validate(data);
 
   return vData;
 }

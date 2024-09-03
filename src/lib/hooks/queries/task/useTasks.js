@@ -1,10 +1,22 @@
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import {
   createTaskRequest,
   deleteTaskRequest,
+  getTaskRequest,
   moveTaskRequest,
   updateTaskRequest,
 } from '../../../requests/task/tasksRequests';
+
+export function useGetTask(id) {
+  const key = ['task', 'create', 'board'];
+
+  console.log('ID', id);
+
+  return useQuery({
+    queryKey: key,
+    queryFn: async () => await getTaskRequest(id),
+  });
+}
 
 export function useCreateTask() {
   const key = ['task', 'create', 'board'];

@@ -35,7 +35,7 @@ export default function ContextMenu(props) {
         <ul className='py-2 flex flex-col'>
           {prev_board_id && (
             <li
-              className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-purple-bg'
+              className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-gray-100'
               onClick={async () => {
                 const vData = await moveTaskRequestSchema.validate({
                   id: id,
@@ -50,7 +50,7 @@ export default function ContextMenu(props) {
           )}
           {next_board_id && (
             <li
-              className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-purple-bg'
+              className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-gray-100'
               onClick={async () => {
                 const vData = await moveTaskRequestSchema.validate({
                   id: id,
@@ -64,7 +64,7 @@ export default function ContextMenu(props) {
             </li>
           )}
           <li
-            className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-purple-bg'
+            className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-gray-100'
             onClick={() => {
               setOpenUpdateModal(true);
             }}>
@@ -72,7 +72,7 @@ export default function ContextMenu(props) {
             Edit
           </li>
           <li
-            className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-purple-bg'
+            className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-gray-100'
             onClick={() => {
               setOpenDeleteModal(true);
             }}>

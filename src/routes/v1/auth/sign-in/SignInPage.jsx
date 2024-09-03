@@ -14,10 +14,10 @@ export default function SignInPage() {
     <section className='grid items-center justify-center h-dvh'>
       <SignCard>
         <FormProvider {...rhf}>
-          <div className='min-w-80 space-y-4'>
+          <div className='min-w-80 space-y-8'>
             <h1 className='text-center font-bold text-2xl'>Sign In</h1>
             <SignInForm />
-            <div className='space-y-2'>
+            <div className='space-y-3'>
               <Button
                 bordered
                 fullWidth
