@@ -11,8 +11,8 @@ export default function BoardsList() {
 
   return (
     <>
-      <div className='overflow-hidden w-full pr-[3.125rem] max-h-dvh overflow-y-hidden'>
-        <div className='space-x-4 flex overflow-x-auto items-start'>
+      <div className='w-dvw pr-44 max-h-dvh'>
+        <div className='space-x-4 flex items-start overflow-x-auto w-full'>
           {boards.data?.map((item) => (
             <BoardCard key={item.id} {...item} />
           )) ?? <></>}
