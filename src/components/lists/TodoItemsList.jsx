@@ -1,11 +1,27 @@
-import TodoItemCard from '../cards/TodoItemCard';
+import TaskCard from '../cards/TaskCard';
 
-export default function TodoItemsList() {
+import PropTypes from 'prop-types';
+
+TodoItemsList.propTypes = {
+  task: PropTypes.array,
+};
+
+export default function TodoItemsList(props) {
+  const { task } = props;
   return (
+<<<<<<< Updated upstream
+    <div className='space-y-3'>
+      <TodoItemCard />
+      <TodoItemCard />
+      <TodoItemCard />
+=======
     <div className='space-y-3 py-3'>
-      <TodoItemCard index={0} />
-      <TodoItemCard index={1} />
-      <TodoItemCard index={2} />
+      {task.length === 0 ? (
+        <p>Tidak ada data</p>
+      ) : (
+        task.map((item) => <TaskCard key={item.id} index={item.id} {...item} />)
+      )}
+>>>>>>> Stashed changes
     </div>
   );
 }
