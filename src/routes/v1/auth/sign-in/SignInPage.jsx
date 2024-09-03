@@ -30,7 +30,7 @@ export default function SignInPage() {
                 }}>
                 Sign In
               </Button>
-              <Button asLink href={'/v1/auth/sign-up'}>
+              <Button asLink href={'/auth/sign-up'}>
                 Sign Up
               </Button>
             </div>
