@@ -5,10 +5,10 @@ export const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
 });
 
-axios.interceptors.request.use(
+axiosInstance.interceptors.request.use(
   (config) => {
     const token = Cookie.get(import.meta.env.VITE_COOKIE_TOKEN_KEY);
-    if (token && config.url !== '/signup') {
+    if (token && config.url !== '/sign-up' && config.url !== '/sign-in') {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
     return config;
