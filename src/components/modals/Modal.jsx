@@ -15,14 +15,15 @@ export function Modal(props) {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center z-50 ${
+      className={`fixed inset-0 flex items-center justify-center z-50  ${
         isOpen ? 'block' : 'hidden'
       }`}>
       <div
         className={`absolute inset-0 bg-black opacity-50 
  ${isOpen ? 'block' : 'hidden'}`}></div>
-      <div className={`relative bg-white rounded-lg p-8 shadow-md max-w-sm`}>
-        <div className='flex flex-col'>
+      <div
+        className={`relative bg-white rounded-lg p-8 shadow-md max-w-sm space-y-6`}>
+        <div className='flex flex-col gap-4'>
           <div className='flex space-x-4'>
             {icon && <img src={icon} />}
             <h2 className='text-2xl font-bold'>{title}</h2>

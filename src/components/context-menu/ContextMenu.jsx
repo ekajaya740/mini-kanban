@@ -4,6 +4,10 @@ import { moveTaskRequestSchema } from '../../lib/schemas/task';
 import { useState } from 'react';
 import UpdateTaskModal from '../modals/UpdateTaskModal';
 import DeleteTaskModal from '../modals/DeleteTaskModal';
+import ArrowLeft from '../../assets/icons/arrow-left.svg';
+import ArrowRight from '../../assets/icons/arrow-right.svg';
+import Delete from '../../assets/icons/delete.svg';
+import Edit from '../../assets/icons/edit.svg';
 
 ContextMenu.propTypes = {
   isOpen: PropTypes.bool,
@@ -28,10 +32,10 @@ export default function ContextMenu(props) {
         className={`absolute z-30 right-4 text-left bg-white rounded-md shadow-md ${
           isOpen ? 'block' : 'hidden'
         }`}>
-        <ul className='py-2'>
+        <ul className='py-2 flex flex-col'>
           {prev_board_id && (
             <li
-              className='px-4 py-2 hover:bg-gray-100'
+              className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-purple-bg'
               onClick={async () => {
                 const vData = await moveTaskRequestSchema.validate({
                   id: id,
@@ -40,12 +44,13 @@ export default function ContextMenu(props) {
 
                 await moveTask.mutateAsync(vData);
               }}>
+              <img src={ArrowLeft} />
               Move Left
             </li>
           )}
           {next_board_id && (
             <li
-              className='px-4 py-2 hover:bg-gray-100'
+              className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-purple-bg'
               onClick={async () => {
                 const vData = await moveTaskRequestSchema.validate({
                   id: id,
@@ -54,21 +59,24 @@ export default function ContextMenu(props) {
 
                 await moveTask.mutateAsync(vData);
               }}>
+              <img src={ArrowRight} />
               Move Right
             </li>
           )}
           <li
-            className='px-4 py-2 hover:bg-gray-100'
+            className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-purple-bg'
             onClick={() => {
               setOpenUpdateModal(true);
             }}>
+            <img src={Edit} />
             Edit
           </li>
           <li
-            className='px-4 py-2 hover:bg-gray-100'
+            className='px-4 py-2 gap-2 inline-flex text-nowrap hover:bg-purple-bg'
             onClick={() => {
               setOpenDeleteModal(true);
             }}>
+            <img src={Delete} />
             Delete
           </li>
         </ul>

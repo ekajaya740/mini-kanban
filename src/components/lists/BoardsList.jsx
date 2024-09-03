@@ -26,7 +26,7 @@ export default function BoardsList() {
     <>
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className='w-dvw pr-44 max-h-dvh'>
-          <div className='flex space-x-4'>
+          <div className='flex space-x-4 max-w-7xl overflow-y-auto items-start'>
             {boards.data?.map((item, index) => (
               <BoardCard
                 key={item.id}

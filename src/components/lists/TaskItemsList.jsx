@@ -14,7 +14,9 @@ export default function TaskItemsList(props) {
   return (
     <div className='space-y-3 py-3'>
       {task.length === 0 ? (
-        <p>Tidak ada data</p>
+        <p className='py-3 px-4 border border-[##E4E4E8] text-[#B7BDC9] rounded-md'>
+          No task available
+        </p>
       ) : (
         task.map((item, index) => (
           <Draggable key={item.id} index={index} draggableId={item.id}>

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Modal } from './Modal';
 import Button from '../button/Button';
 import { useDeleteTask } from '../../lib/hooks/queries/task/useTasks';
+import Alert from '../../assets/icons/alert.svg';
 
 DeleteTaskModal.propTypes = {
   isOpen: PropTypes.bool,
@@ -23,6 +24,7 @@ export default function DeleteTaskModal(props) {
       isOpen={isOpen}
       onClose={onClose}
       title={'Delete Task'}
+      icon={Alert}
       actions={
         <Button
           color={'error'}
@@ -33,7 +35,7 @@ export default function DeleteTaskModal(props) {
           Delete
         </Button>
       }>
-      <p className='text-left'>
+      <p className='text-wrap text-left ml-10'>
         Are you sure want to delete this task? your action can’t be reverted.
       </p>
     </Modal>

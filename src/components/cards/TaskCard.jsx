@@ -29,7 +29,7 @@ export default function TaskCard(props) {
   };
 
   return (
-    <div className='px-4 pt-4 pb-2 border-black border rounded-md'>
+    <div className='px-4 pt-4 pb-2 border-black bg-white border rounded-md'>
       <div className='space-y-6'>
         <div>
           <h4 className='py-px text-sm font-bold'>{name}</h4>
@@ -37,7 +37,7 @@ export default function TaskCard(props) {
         <div className='grid grid-cols-2'>
           <TodoItemProgress progress_percentage={progress_percentage} />
           <div className='place-self-end'>
-            <Button onClick={handleButtonClick}>
+            <Button onClick={handleButtonClick} noBg>
               <ContextMenu
                 id={id}
                 isOpen={contextMenuIndex === id}
