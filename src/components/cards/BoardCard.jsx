@@ -4,6 +4,7 @@ import { useState } from 'react';
 import NewTaskModal from '../modals/NewTaskModal';
 import PropTypes from 'prop-types';
 import TaskItemsList from '../lists/TaskItemsList';
+import { Droppable } from 'react-beautiful-dnd';
 
 BoardCard.propTypes = {
   id: PropTypes.string,
@@ -26,6 +27,7 @@ export default function BoardCard(props) {
     next_board_id,
   } = props;
   const [open, setOpen] = useState(false);
+
   return (
     <>
       <div className=' relative border-black border rounded-md min-w-80 max-w-sm w-full space-y-3 overflow-y-scroll max-h-96 h-full'>
@@ -38,11 +40,18 @@ export default function BoardCard(props) {
           </h3>
         </div>
         <div className='pt-3 px-3'>
-          <TaskItemsList
-            task={task ?? []}
-            prev_board_id={prev_board_id}
-            next_board_id={next_board_id}
-          />
+          <Droppable droppableId={`${id}`}>
+            {(provided) => (
+              <div ref={provided.innerRef} {...provided.droppableProps}>
+                <TaskItemsList
+                  task={task ?? []}
+                  prev_board_id={prev_board_id}
+                  next_board_id={next_board_id}
+                />
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
         </div>
         <div className=' pt-3 px-3 sticky bottom-0 bg-white w-full h-full z-30'>
           <Button

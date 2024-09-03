@@ -74,10 +74,12 @@ export default function ContextMenu(props) {
         </ul>
       </div>
       <UpdateTaskModal
+        id={id}
         isOpen={openUpdateModal}
         onClose={() => setOpenUpdateModal(false)}
       />
       <DeleteTaskModal
+        id={id}
         isOpen={openDeleteModal}
         onClose={() => setOpenDeleteModal(false)}
       />
