@@ -11,7 +11,7 @@ export default function ProtectedMainLayout() {
   }
 
   return (
-    <section className='flex overflow-x-hidden overflow-y-hidden max-h-dvh'>
+    <section className='flex overflow-x-hidden w-full overflow-y-hidden max-h-dvh'>
       <SideNavigation />
       <Outlet />
     </section>
