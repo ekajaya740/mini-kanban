@@ -11,6 +11,7 @@ export function useSignIn() {
     onSuccess: async (data) => {
       Cookies.set(import.meta.env.VITE_COOKIE_TOKEN_KEY, data.auth_token, {
         secure: true,
+        expires: 1,
       });
     },
   });
