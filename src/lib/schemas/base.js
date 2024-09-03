@@ -7,6 +7,6 @@ export const baseDataSchema = object({
 });
 
 export const baseResponseSchema = object({
-  status_code: number(),
+  statusCode: number(),
   message: string(),
 });
