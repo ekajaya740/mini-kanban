@@ -21,11 +21,14 @@ export const createTaskResponseSchema = baseResponseSchema.shape({
   data: baseDataSchema.concat(baseTaskSchema),
 });
 
-// export const createItemRequestSchema = baseItemSchema.pick([
-//   'name',
-//   'progress_percentage',
-// ]);
+export const moveTaskRequestSchema = object({
+  id: string().uuid().required(),
+  board_id: string().uuid().required(),
+});
 
-// export const updateItemRequestSchema = baseItemSchema.pick(['name']).shape({
-//   target_todo_id: number().required(),
-// });
+export const moveTaskResponseSchema = createTaskResponseSchema;
+
+export const updateTaskRequestSchema = baseTaskSchema.pick(['name']);
+export const updateTaskResponseSchema = baseResponseSchema.shape({
+  data: baseDataSchema.concat(baseTaskSchema),
+});

@@ -1,11 +1,10 @@
 import { axiosInstance } from '../../config/axios';
+import { baseResponseSchema } from '../../schemas/base';
 import {
   createTaskResponseSchema,
   getAllTaskSchema,
-  // baseItemSchema,
-  // createItemRequestSchema,
-
-  // updateItemRequestSchema,
+  moveTaskResponseSchema,
+  updateTaskResponseSchema,
 } from '../../schemas/task';
 
 export async function getTasksRequest(todoId) {
@@ -28,34 +27,34 @@ export async function createTaskRequest(input) {
   return vData;
 }
 
-// export async function createTaskRequest(todoId, input) {
-//   const endpoint = `/todos/${todoId}/items`;
+export async function moveTaskRequest(input) {
+  const endpoint = '/task/move';
 
-//   const vInput = await createItemRequestSchema.validate(input);
+  const { data } = await axiosInstance.post(endpoint, input);
 
-//   const { data } = await axiosInstance.post(endpoint, vInput);
+  const vData = await moveTaskResponseSchema.validate(data);
 
-//   const vData = await baseItemSchema.validate(data);
+  return vData;
+}
 
-//   return vData;
-// }
+export async function updateTaskRequest(id, input) {
+  const endpoint = `/task/${id}`;
 
-// export async function updateTaskRequest(todoId, itemId, input) {
-//   const endpoint = `/todos/${todoId}/items/${itemId}`;
+  const { data } = await axiosInstance.put(endpoint, input);
 
-//   const vInput = await updateTaskRequestSchema.validate(input);
+  console.log(data);
 
-//   const { data } = await axiosInstance.patch(endpoint, vInput);
+  const vData = await updateTaskResponseSchema.validate(data);
 
-//   const vData = await baseItemSchema.validate(data);
+  return vData;
+}
 
-//   return vData;
-// }
+export async function deleteTaskRequest(id) {
+  const endpoint = `/task/${id}`;
 
-// export async function deleteTaskRequest(todoId, itemId) {
-//   const endpoint = `/todos/${todoId}/items/${itemId}`;
+  const { data } = await axiosInstance.delete(endpoint);
 
-//   const { data } = await axiosInstance.delete(endpoint);
+  const vData = await baseResponseSchema.validate(data);
 
-//   return data;
-// }
+  return vData;
+}
