@@ -1,9 +1,9 @@
-import TodoItemsList from '../lists/TodoItemsList';
 import Button from '../button/Button';
 import PlusCircle from '../../assets/icons/plus-circle.svg';
 import { useState } from 'react';
 import NewTaskModal from '../modals/NewTaskModal';
 import PropTypes from 'prop-types';
+import TaskItemsList from '../lists/TaskItemsList';
 
 BoardCard.propTypes = {
   id: PropTypes.string,
@@ -11,10 +11,20 @@ BoardCard.propTypes = {
   start_date: PropTypes.string,
   end_date: PropTypes.string,
   task: PropTypes.array,
+  prev_board_id: PropTypes.string,
+  next_board_id: PropTypes.string,
 };
 
 export default function BoardCard(props) {
-  const { title, start_date, end_date, task, id } = props;
+  const {
+    title,
+    start_date,
+    end_date,
+    task,
+    id,
+    prev_board_id,
+    next_board_id,
+  } = props;
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -28,7 +38,11 @@ export default function BoardCard(props) {
           </h3>
         </div>
         <div className='pt-3 px-3'>
-          <TodoItemsList task={task ?? []} />
+          <TaskItemsList
+            task={task ?? []}
+            prev_board_id={prev_board_id}
+            next_board_id={next_board_id}
+          />
         </div>
         <div className=' pt-3 px-3 sticky bottom-0 bg-white w-full h-full z-30'>
           <Button

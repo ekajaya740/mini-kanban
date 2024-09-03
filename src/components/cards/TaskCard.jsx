@@ -6,18 +6,21 @@ import { useContextMenuStore } from '../../lib/hooks/stores/useContextMenuStore'
 import PropTypes from 'prop-types';
 
 TaskCard.propTypes = {
+  prev_board_id: PropTypes.string,
+  next_board_id: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
   progress_percentage: PropTypes.number,
 };
 
 export default function TaskCard(props) {
-  const { id, name, progress_percentage } = props;
+  const { id, name, progress_percentage, prev_board_id, next_board_id } = props;
 
   const { contextMenuIndex, openContextMenu, closeContextMenu } =
     useContextMenuStore();
 
   const handleButtonClick = () => {
+    console.log(contextMenuIndex);
     if (contextMenuIndex === id) {
       closeContextMenu();
     } else {
@@ -36,8 +39,10 @@ export default function TaskCard(props) {
           <div className='place-self-end'>
             <Button onClick={handleButtonClick}>
               <ContextMenu
+                id={id}
                 isOpen={contextMenuIndex === id}
-                onClose={closeContextMenu}
+                prev_board_id={prev_board_id}
+                next_board_id={next_board_id}
               />
               <img src={Elipsis} />
             </Button>

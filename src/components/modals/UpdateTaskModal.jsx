@@ -2,53 +2,51 @@ import PropTypes from 'prop-types';
 import { Modal } from './Modal';
 import Button from '../button/Button';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useUpdateTask } from '../../lib/hooks/queries/task/useTasks';
+import { updateTaskRequestSchema } from '../../lib/schemas/task';
+import UpdateTaskForm from '../forms/UpdateTaskForm';
 
-import NewTaskForm from '../forms/NewTaskForm';
-import { useCreateTask } from '../../lib/hooks/queries/task/useTasks';
-import { createTaskRequestSchema } from '../../lib/schemas/task';
-
-NewTaskModal.propTypes = {
+UpdateTaskModal.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
   title: PropTypes.string,
   children: PropTypes.any,
   actions: PropTypes.any,
   icon: PropTypes.any,
-  board_id: PropTypes.string,
+  id: PropTypes.string,
 };
 
-export default function NewTaskModal(props) {
-  const { isOpen, onClose, board_id } = props;
+export default function UpdateTaskModal(props) {
+  const { isOpen, onClose, id } = props;
   const rhf = useForm();
 
-  const createTask = useCreateTask();
+  const updateTask = useUpdateTask(id);
 
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title={'New Task'}
+      title={'Update Task'}
       actions={
         <Button
           color={'success'}
           usePadding
           onClick={async () => {
-            const vData = await createTaskRequestSchema.validate({
+            const vData = await updateTaskRequestSchema.validate({
               ...rhf.getValues(),
-              board_id: board_id,
             });
 
-            await createTask.mutateAsync(vData);
+            await updateTask.mutateAsync(vData);
 
             rhf.resetField();
 
             onClose();
           }}>
-          Create
+          Update
         </Button>
       }>
       <FormProvider {...rhf}>
-        <NewTaskForm />
+        <UpdateTaskForm />
       </FormProvider>
     </Modal>
   );

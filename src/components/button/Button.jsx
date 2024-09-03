@@ -46,6 +46,7 @@ export default function Button(props) {
         'px-4': usePadding,
         'w-full justify-center': fullWidth,
         'bg-success text-white': color === 'success',
+        'bg-error text-white': color === 'error',
       })}
       onClick={onClick}>
       {children}

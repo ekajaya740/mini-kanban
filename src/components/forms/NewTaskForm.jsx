@@ -11,6 +11,7 @@ export default function NewTaskForm() {
           name={'progress_percentage'}
           control={control}
           label={'Progress'}
+          type={'number'}
         />
       </div>
     </form>
