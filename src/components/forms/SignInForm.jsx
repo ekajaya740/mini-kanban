@@ -6,7 +6,12 @@ export default function SignInForm() {
   return (
     <form className='space-y-2'>
       <Input label={'Email'} control={control} name={'email'} />
-      <Input label={'Password'} control={control} name={'password'} />
+      <Input
+        label={'Password'}
+        control={control}
+        name={'password'}
+        type={'password'}
+      />
     </form>
   );
 }
